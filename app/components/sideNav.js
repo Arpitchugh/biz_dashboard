@@ -16,6 +16,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { usePathname } from 'next/navigation';
 
 const DRAWER_WIDTH = 240;
 
@@ -39,10 +40,7 @@ const PLACEHOLDER_LINKS = [
 ];
 
 export default function SideNav() {
-	const [activeLink, setActiveLink] = React.useState('/');
-	const handleLinkClick = href => {
-		setActiveLink(href);
-	};
+	const pathName = usePathname();
 	return (
 		<Drawer
 			sx={{
@@ -83,7 +81,7 @@ export default function SideNav() {
 			</Box>
 			<List>
 				{LINKS.map(({ text, href, icon: Icon }) => {
-					const isActive = href === activeLink;
+					const isActive = href === pathName;
 					return (
 						<ListItem
 							key={href}
@@ -92,11 +90,6 @@ export default function SideNav() {
 							<ListItemButton
 								component={Link}
 								href={href}
-								onClick={() =>
-									handleLinkClick(
-										href
-									)
-								} // Set the active link on click
 								sx={{
 									backgroundColor:
 										isActive
@@ -151,11 +144,6 @@ export default function SideNav() {
 							<ListItemButton
 								component={Link}
 								href={href}
-								onClick={() =>
-									handleLinkClick(
-										href
-									)
-								}
 							>
 								<ListItemIcon
 									sx={{
