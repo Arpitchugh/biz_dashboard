@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
 	Card,
@@ -8,103 +9,39 @@ import {
 	TableCell,
 	TableHead,
 	TableRow,
+	Box,
 } from '@mui/material';
+import CardsSection from '../components/cards';
+import { ThemeProvider } from '@emotion/react';
+import theme from '../ui/theme';
+
+const cardData = [
+	{ amount: '₹2.56 Cr', label: 'Currently Raising' },
+	{ amount: '₹5.98 Cr', label: 'Total Raised' },
+	{ amount: '₹0.65 Cr', label: 'Available Target Raise' },
+];
 
 const overview = () => {
 	return (
-		<div className='flex flex-col gap-6'>
-			{/* Current Exposure Section */}
-			<Card className='shadow-md'>
-				<CardContent>
+		<ThemeProvider theme={theme}>
+			<div className='flex flex-col gap-6 '>
+				{/* Heading Section */}
+				<Box>
+					<Typography variant='h3'>
+						Overview
+					</Typography>
 					<Typography
 						variant='h6'
-						className='font-bold'
+						className='stone500 '
 					>
-						Current Exposure
+						Gives you a overview of all the
+						Deals happening Today
 					</Typography>
-					<Typography variant='body1'>
-						₹70L
-					</Typography>
-					<Typography
-						variant='caption'
-						className='text-gray-500'
-					>
-						10L due on 25 Nov 2023
-					</Typography>
-				</CardContent>
-			</Card>
-
-			{/* Currently Raising Deals Table */}
-			<Card className='shadow-md'>
-				<CardContent>
-					<Typography
-						variant='h6'
-						className='font-bold'
-					>
-						Currently Raising Deals
-					</Typography>
-					<Table size='small'>
-						<TableHead>
-							<TableRow>
-								<TableCell>
-									Deal ID
-								</TableCell>
-								<TableCell>
-									Type
-								</TableCell>
-								<TableCell>
-									Listed
-									amount
-								</TableCell>
-								<TableCell>
-									Raised
-									Amount
-								</TableCell>
-								<TableCell>
-									Settlement
-									Date
-								</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{/* Map through your deals data to render table rows */}
-							<TableRow>
-								<TableCell>
-									675
-								</TableCell>
-								<TableCell>
-									AL
-								</TableCell>
-								<TableCell>
-									₹30L
-								</TableCell>
-								<TableCell>
-									₹15L
-								</TableCell>
-								<TableCell>
-									07 Nov
-									2023
-								</TableCell>
-							</TableRow>
-							{/* ... other rows */}
-						</TableBody>
-					</Table>
-				</CardContent>
-			</Card>
-
-			{/* Payments Section */}
-			<Card className='shadow-md'>
-				<CardContent>
-					<Typography
-						variant='h6'
-						className='font-bold'
-					>
-						Payments
-					</Typography>
-					{/* ... similar to the deals table ... */}
-				</CardContent>
-			</Card>
-		</div>
+				</Box>
+				{/* Cards Section */}
+				<CardsSection cardData={cardData} />
+			</div>
+		</ThemeProvider>
 	);
 };
 
