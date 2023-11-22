@@ -53,10 +53,12 @@ const CardComponent = ({ icon: Icon, heading, amount, label, date, etc }) => {
 						</Typography>
 						<Typography
 							variant='h3'
+							className={
+								etc &&
+								'underline underline-offset-2'
+							}
 							sx={
 								etc && {
-									textDecoration:
-										'underline',
 									color: '#6D8FFF',
 									fontSize: '14px',
 								}
@@ -74,7 +76,7 @@ const CardComponent = ({ icon: Icon, heading, amount, label, date, etc }) => {
 const overview = () => {
 	return (
 		<ThemeProvider theme={theme}>
-			<Box className='flex flex-col gap-9 '>
+			<Box className='flex flex-col gap-9'>
 				{/* Heading Section */}
 				<Box>
 					<Typography variant='h2'>
@@ -89,13 +91,35 @@ const overview = () => {
 					</Typography>
 				</Box>
 				{/* Cards Section */}
-				<Box className='flex items-center flex-wrap '>
-					{cardData.map((metric, index) => (
-						<CardComponent
-							key={index}
-							{...metric}
-						/>
-					))}
+				<Box className='flex items-end flex-wrap justify-between'>
+					<Box className='flex flex-row'>
+						{cardData.map(
+							(metric, index) => (
+								<CardComponent
+									key={
+										index
+									}
+									{...metric}
+								/>
+							)
+						)}
+					</Box>
+
+					<Box className='flex flex-col'>
+						<Typography
+							variant='h3'
+							className='text-right'
+						>
+							Facing Any Issue?
+						</Typography>
+						<Typography
+							variant='h4'
+							className='text-neutral-400 underline underline-offset-2'
+						>
+							Get in Touch with your
+							RM
+						</Typography>
+					</Box>
 				</Box>
 			</Box>
 		</ThemeProvider>
