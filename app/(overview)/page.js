@@ -1,17 +1,6 @@
 'use client';
 import React from 'react';
-import {
-	Card,
-	CardContent,
-	Typography,
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableRow,
-	Box,
-} from '@mui/material';
-import CardsSection from '../components/cards';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import theme from '../ui/theme';
 
@@ -27,11 +16,11 @@ const overview = () => {
 			<div className='flex flex-col gap-6 '>
 				{/* Heading Section */}
 				<Box>
-					<Typography variant='h3'>
+					<Typography variant='h1'>
 						Overview
 					</Typography>
 					<Typography
-						variant='h6'
+						variant='h3'
 						className='stone500 '
 					>
 						Gives you a overview of all the
@@ -39,7 +28,6 @@ const overview = () => {
 					</Typography>
 				</Box>
 				{/* Cards Section */}
-				<CardsSection cardData={cardData} />
 			</div>
 		</ThemeProvider>
 	);
