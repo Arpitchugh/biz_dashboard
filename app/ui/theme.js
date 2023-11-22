@@ -1,24 +1,23 @@
 import { createTheme } from '@mui/material/styles';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({
-	subsets: ['latin'],
-});
 
-const theme = createTheme();
-
-theme.typography = {
-	fontFamily: inter.style.fontFamily,
-	h3: {
-		fontSize: '1.2rem',
-		
-		'@media (min-width:600px)': {
-			fontSize: '1.5rem',
+const theme = createTheme({
+	typography: {
+		fontFamily: 'inherit',
+		h1: {
+			fontSize: '2rem',
+			fontStyle: 'normal',
+			fontWeight: 600,
+			lineHeight: '150%' /* 48px */,
+			letterSpacing: '-0.64px',
 		},
-		[theme.breakpoints.up('md')]: {
-			fontSize: '2.4rem',
+		h3: {
+			fontSize: '1rem',
+			fontStyle: 'normal',
+			fontWeight: 400,
+			lineHeight: '160%',
 		},
 	},
-};
+});
 
 export default theme;
