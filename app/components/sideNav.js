@@ -115,6 +115,12 @@ export default function SideNav() {
 									/>
 								</ListItemIcon>
 								<ListItemText
+									// sx={{
+									// 	'&:children':
+									// 		{
+									// 			fontFamily: 'inter, sans-serif',
+									// 		},
+									// }}
 									primary={
 										text
 									}
