@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang='en'>
+		<html lang='en' style={{ backgroundColor: '#f6f6f1' }}>
 			<body className={inter.className}>
 				<SideNav />
 				<Box
@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
 					sx={{
 						flexGrow: 1,
 						ml: `240px`,
-						mt: ['48px', '56px', '64px'],
-						p: 3,
+						mt: '30px',
+						p: '24px 30px',
 					}}
 				>
 					{children}
