@@ -20,3 +20,8 @@ body {
 	color: rgb(var(--foreground-rgb));
 	background: rgb(var(--background));
 }
+
+.stone500 {
+	color: #78716C;
+}
+
